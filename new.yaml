@@ -14,11 +14,7 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Echo Welcome Message
-                  identifier: Echo_Welcome_Message
-                  spec:
-                    shell: Sh
-                    command: echo "Welcome to Harness CI"
+                  name: Demo
           platform:
             os: Linux
             arch: Amd64
@@ -30,4 +26,4 @@ pipeline:
       codebase:
         connectorRef: account.Github
         repoName: sahilnewar/hello-world
-        build: <+input>
+        build: demo.sh
