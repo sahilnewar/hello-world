@@ -1,0 +1,33 @@
+pipeline:
+  name: My build
+  identifier: My_build
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: Master_connector
+        repoName: hello-world
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Action
+                  name: Action_1
+                  identifier: Action_1
+                  spec:
+                    uses: https://github.com/sahilnewar/hello-world/blob/main/demo.sh
