@@ -30,4 +30,4 @@ pipeline:
                   name: Action_1
                   identifier: Action_1
                   spec:
-                    uses: https://github.com/sahilnewar/hello-world/blob/main/demo.sh
+                    uses: https://github.com/sahilnewar/hello-world/demo.sh
