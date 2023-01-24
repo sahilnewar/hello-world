@@ -32,7 +32,6 @@ pipeline:
                   spec:
                     connectorRef: Master_connector
                     repoName: hello-world
-                    cloneDirectory: /harness/hello-world  https://github.com/sahilnewar/hello-world
                     build:
                       type: branch
                       spec:
