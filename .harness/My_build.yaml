@@ -1,28 +1,15 @@
 pipeline:
-  name: My build
-  identifier: My_build
+  name: Build hello-world
+  identifier: Build_hello_world_1674194362386
   projectIdentifier: default_project
   orgIdentifier: default
-  tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: Master_connector
-        repoName: hello-world
-        build: <+input>
   stages:
     - stage:
-        name: build
-        identifier: build
+        name: Build
+        identifier: Build
         type: CI
         spec:
           cloneCodebase: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - step:
@@ -43,5 +30,24 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |
-                        chmod +x demo.sh
-                        ./demo.sh
+                      chmod +x demo.sh
+                      ./demo.sh
+              - step:
+                  type: Run
+                  name: Echo Welcome Message
+                  identifier: Echo_Welcome_Message
+                  spec:
+                    shell: Sh
+                    command: echo "Welcome to Harness CI"
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github
+        repoName: sahilnewar/hello-world
+        build: <+input>
