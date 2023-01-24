@@ -36,3 +36,12 @@ pipeline:
                       type: branch
                       spec:
                         branch: main
+              - step:
+                  type: Run
+                  name: Run the file
+                  identifier: run_the_file
+                  spec:
+                    shell: Sh
+                    command: |
+                        chmod +x demo.sh
+                        ./demo.sh
