@@ -43,17 +43,3 @@ pipeline:
                   identifier: Action_1
                   spec:
                     uses: demo.sh@main
-              - step:
-                  type: RunTests
-                  name: Run Tests_1
-                  identifier: RunTests_1
-                  spec:
-                    language: Java
-                    buildTool: Maven
-                    args: <+input>
-                    runOnlySelectedTests: true
-                    reports:
-                      type: JUnit
-                      spec:
-                        paths:
-                          - .harness/report.xml
