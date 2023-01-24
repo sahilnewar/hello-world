@@ -26,8 +26,34 @@ pipeline:
           execution:
             steps:
               - step:
+                  type: GitClone
+                  name: Git Clone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: Master_connector
+                    repoName: hello-world
+                    cloneDirectory: /harness/hello-world  https://github.com/sahilnewar/hello-world
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
+              - step:
                   type: Action
                   name: Action_1
                   identifier: Action_1
                   spec:
                     uses: demo.sh@main
+              - step:
+                  type: RunTests
+                  name: Run Tests_1
+                  identifier: RunTests_1
+                  spec:
+                    language: Java
+                    buildTool: Maven
+                    args: <+input>
+                    runOnlySelectedTests: true
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths:
+                          - .harness/report.xml
